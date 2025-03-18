@@ -1,0 +1,10 @@
+*.pyc
+*.pyo
+
+__pycache__/
+# Ignore Redis dump file
+*.rdb
+
+.idea
+
+.venv

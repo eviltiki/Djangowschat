@@ -26,12 +26,12 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 # Чтение .env файла
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+env_path = BASE_DIR / ".env"
+if env_path.exists():
+    environ.Env.read_env(env_path)
 
 SECRET_KEY = env("SECRET_KEY", default="default-secret-key")
-DEBUG = env('DEBUG')
-
+DEBUG = env('DEBUG', default=False)
 ALLOWED_HOSTS = ["*"]
 
 

@@ -5,6 +5,6 @@ __pycache__/
 # Ignore Redis dump file
 *.rdb
 
-.idea
+../.idea
 
 .venv

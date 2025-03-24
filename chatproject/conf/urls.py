@@ -21,5 +21,6 @@ from apps import accounts
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('apps.accounts.urls')),
+    path('api/', include('apps.accounts.urls')),
+    path('api/', include('apps.chat.urls')),
 ]

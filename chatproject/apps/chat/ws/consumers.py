@@ -2,8 +2,14 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 
+#TODO: добавить проверку, существует ли чат в базе данных
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
+        user = self.scope['user']
+        if user.is_anonymous:
+            await self.close(code=4001)
+            return
+
         # Извлекаем название комнаты из URL
         self.room_name = self.scope['url_route']['kwargs']['room_name']
         # Создаем имя группы для комнаты
